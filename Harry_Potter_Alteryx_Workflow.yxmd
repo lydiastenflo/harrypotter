@@ -1,0 +1,1846 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2020.2">
+  <Nodes>
+    <Node ToolID="84">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="954" y="581" width="1465" height="225" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Output to Tableau</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="52">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="2083" y="630" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="character_primary_name" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="movie_character" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Join characters to movies/books</AnnotationText>
+              <DefaultAnnotationText>Join books</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="53">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2191" y="630" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="character_id" selected="True" />
+                <SelectField field="character_name" selected="True" />
+                <SelectField field="character_gender" selected="True" />
+                <SelectField field="character_job" selected="True" />
+                <SelectField field="character_house" selected="True" />
+                <SelectField field="character_wand" selected="True" />
+                <SelectField field="character_patronus" selected="True" />
+                <SelectField field="character_species" selected="True" />
+                <SelectField field="character_blood_status" selected="True" />
+                <SelectField field="character_hair_colour" selected="True" />
+                <SelectField field="character_eye_colour" selected="True" />
+                <SelectField field="character_loyalty" selected="True" />
+                <SelectField field="character_skills" selected="True" />
+                <SelectField field="character_birth" selected="True" />
+                <SelectField field="character_death" selected="True" />
+                <SelectField field="character_first_name" selected="True" />
+                <SelectField field="character_primary_name" selected="True" />
+                <SelectField field="character2_actor" selected="True" />
+                <SelectField field="character2_image_URL" selected="True" />
+                <SelectField field="character_death_T/F" selected="True" />
+                <SelectField field="book_number" selected="True" />
+                <SelectField field="book_mentions" selected="True" />
+                <SelectField field="book_name" selected="True" />
+                <SelectField field="book_year" selected="True" />
+                <SelectField field="movie_number" selected="True" />
+                <SelectField field="movie_mentions" selected="True" />
+                <SelectField field="movie_name" selected="True" />
+                <SelectField field="movie_year" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Remove extra</AnnotationText>
+              <DefaultAnnotationText>Remove extra</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="54">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="2287" y="630" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="0">C:\Users\sarakautto\Documents\Harry_Potter_movies_and_books_dataset.csv</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <LineEndStyle>CRLF</LineEndStyle>
+                <Delimeter>,</Delimeter>
+                <ForceQuotes>False</ForceQuotes>
+                <HeaderRow>True</HeaderRow>
+                <CodePage>28591</CodePage>
+                <WriteBOM>True</WriteBOM>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>OUPUT: Harry_Potter_movies_and_books_dataset.csv (used in the Tableau dashboard)</AnnotationText>
+              <DefaultAnnotationText>Harry_Potter_movies_and_books_dataset.csv</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="78">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="979" y="642" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="book_character" />
+                <Field field="book_number" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="movie_character" />
+                <Field field="movie_number" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_book_year" selected="True" rename="Right_book_year" input="Right_" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Join books &amp; movies</AnnotationText>
+              <DefaultAnnotationText>Join books &amp; movies</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="79">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="1075" y="641.9999" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Include Inner and right join</AnnotationText>
+              <DefaultAnnotationText>Include Inner and right join</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="85">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1724" y="221" width="691" height="309" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Output to NLP</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="30">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1749" y="276" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="character_primary_name" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Keep only primary names</AnnotationText>
+              <DefaultAnnotationText>Keep only primary names</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="86">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1988" y="414" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression><![CDATA[[character_primary_name] = "Harry"
+OR
+[character_primary_name] = "Voldemort"
+OR
+[character_primary_name] = "Snape"
+OR
+[character_primary_name] = "Fat"
+OR
+[character_primary_name] = "Sirius"
+]]></Expression>
+              <Mode>Custom</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Generate new rows</AnnotationText>
+              <DefaultAnnotationText>[character_primary_name] = "Harry"
+OR
+[character_primary_name] = "Voldemort"
+OR
+...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="87">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="2084" y="402" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="IF [character_primary_name] = &quot;Voldemort&quot;&#xA;THEN &quot;Tom&quot;&#xA;ELSEIF [character_primary_name] = &quot;Sirius&quot;&#xA;THEN &quot;The Heir of Slytherin&quot;&#xA;ELSEIF [character_primary_name] = &quot;Harry&quot;&#xA;THEN &quot;The Dark Lord&quot;&#xA;ELSEIF [character_primary_name] = &quot;Snape&quot;&#xA;THEN &quot;You-Know-Who&quot;&#xA;ELSEIF [character_primary_name] = &quot;Fat&quot;&#xA;THEN &quot;He-Who-Must-Not-Be-Named&quot;&#xA;ELSE [character_primary_name]&#xA;ENDIF" field="character_primary_name" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Add alias to Voldemort</AnnotationText>
+              <DefaultAnnotationText>character_primary_name = IF [character_primary_name] = "Voldemort"
+THEN "Tom"
+EL...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="31">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="2288" y="270" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="0">C:\Users\sarakautto\Documents\character_names.csv</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <LineEndStyle>CRLF</LineEndStyle>
+                <Delimeter>,</Delimeter>
+                <ForceQuotes>False</ForceQuotes>
+                <HeaderRow>True</HeaderRow>
+                <CodePage>28591</CodePage>
+                <WriteBOM>True</WriteBOM>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>OUPUT: character_names.csv (used as a list of characters in the NLP)</AnnotationText>
+              <DefaultAnnotationText>character_names.csv</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="88">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="2180" y="270" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="46">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="55" y="54" width="1623" height="429" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Characters</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="2">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="80.00005" y="270" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\sarakautto\Documents\Characters.csv</File>
+              <FormatSpecificOptions>
+                <HeaderRow>True</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>1000</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>;</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>65001</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Characters.csv</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Id" size="1000" source="File: C:\Users\sarakautto\Documents\Characters.csv" type="V_WString" />
+                <Field name="Name" size="1000" source="File: C:\Users\sarakautto\Documents\Characters.csv" type="V_WString" />
+                <Field name="Gender" size="1000" source="File: C:\Users\sarakautto\Documents\Characters.csv" type="V_WString" />
+                <Field name="Job" size="1000" source="File: C:\Users\sarakautto\Documents\Characters.csv" type="V_WString" />
+                <Field name="House" size="1000" source="File: C:\Users\sarakautto\Documents\Characters.csv" type="V_WString" />
+                <Field name="Wand" size="1000" source="File: C:\Users\sarakautto\Documents\Characters.csv" type="V_WString" />
+                <Field name="Patronus" size="1000" source="File: C:\Users\sarakautto\Documents\Characters.csv" type="V_WString" />
+                <Field name="Species" size="1000" source="File: C:\Users\sarakautto\Documents\Characters.csv" type="V_WString" />
+                <Field name="Blood status" size="1000" source="File: C:\Users\sarakautto\Documents\Characters.csv" type="V_WString" />
+                <Field name="Hair colour" size="1000" source="File: C:\Users\sarakautto\Documents\Characters.csv" type="V_WString" />
+                <Field name="Eye colour" size="1000" source="File: C:\Users\sarakautto\Documents\Characters.csv" type="V_WString" />
+                <Field name="Loyalty" size="1000" source="File: C:\Users\sarakautto\Documents\Characters.csv" type="V_WString" />
+                <Field name="Skills" size="1000" source="File: C:\Users\sarakautto\Documents\Characters.csv" type="V_WString" />
+                <Field name="Birth" size="1000" source="File: C:\Users\sarakautto\Documents\Characters.csv" type="V_WString" />
+                <Field name="Death" size="1000" source="File: C:\Users\sarakautto\Documents\Characters.csv" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="3">
+          <GuiSettings>
+            <Position x="308" y="270" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Check Box (135)">True</Value>
+              <Value name="Check Box (136)">True</Value>
+              <Value name="List Box (11)">"character_id","character_name","character_gender","character_job","character_house","character_wand","character_patronus","character_species","character_blood_status","character_hair_colour","character_eye_colour","character_loyalty","character_skills","character_birth","character_death"</Value>
+              <Value name="Check Box (84)">False</Value>
+              <Value name="Check Box (117)">False</Value>
+              <Value name="Check Box (15)">True</Value>
+              <Value name="Check Box (109)">False</Value>
+              <Value name="Check Box (122)">False</Value>
+              <Value name="Check Box (53)">False</Value>
+              <Value name="Check Box (58)">False</Value>
+              <Value name="Check Box (70)">False</Value>
+              <Value name="Check Box (77)">False</Value>
+              <Value name="Drop Down (81)">upper</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Clean data</AnnotationText>
+              <DefaultAnnotationText>Clean data</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings Macro="Cleanse.yxmc" />
+        </Node>
+        <Node ToolID="5">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="200" y="270" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Id" selected="True" rename="character_id" />
+                <SelectField field="Name" selected="True" rename="character_name" />
+                <SelectField field="Gender" selected="True" rename="character_gender" />
+                <SelectField field="Job" selected="True" rename="character_job" />
+                <SelectField field="House" selected="True" rename="character_house" />
+                <SelectField field="Wand" selected="True" rename="character_wand" />
+                <SelectField field="Patronus" selected="True" rename="character_patronus" />
+                <SelectField field="Species" selected="True" rename="character_species" />
+                <SelectField field="Blood status" selected="True" rename="character_blood_status" />
+                <SelectField field="Hair colour" selected="True" rename="character_hair_colour" />
+                <SelectField field="Eye colour" selected="True" rename="character_eye_colour" />
+                <SelectField field="Loyalty" selected="True" rename="character_loyalty" />
+                <SelectField field="Skills" selected="True" rename="character_skills" />
+                <SelectField field="Birth" selected="True" rename="character_birth" />
+                <SelectField field="Death" selected="True" rename="character_death" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Rename columns</AnnotationText>
+              <DefaultAnnotationText>Rename columns</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="9">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="848" y="270" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>character_name</Field>
+              <ErrorHandling>Last</ErrorHandling>
+              <RootName>character_first_name</RootName>
+              <Delimeters value=" " />
+              <NumFields value="2" />
+              <Flags value="0" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Split Name</AnnotationText>
+              <DefaultAnnotationText>Split Name</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+        <Node ToolID="10">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1017" y="271" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="IF [character_first_name] = &quot;Ronald&quot;&#xA;THEN  &quot;Ron&quot;&#xA;ELSEIF [character_name] = &quot;Albus Percival Wulfric Brian Dumbledore&quot;&#xA;THEN  &quot;Dumbledore&quot;&#xA;ELSEIF [character_name] = &quot;Marcus Flint&quot;&#xA;THEN  &quot;Flint&quot;&#xA;ELSEIF [character_first_name] = &quot;Ginevra&quot;&#xA;THEN  &quot;Ginny&quot;&#xA;ELSEIF [character_first_name] = &quot;Rubeus&quot;&#xA;THEN  &quot;Hagrid&quot;&#xA;ELSEIF [character_first_name] = &quot;Tom&quot;&#xA;THEN  &quot;Voldemort&quot;&#xA;ELSEIF [character_first_name] = &quot;Severus&quot;&#xA;THEN  &quot;Snape&quot;&#xA;ELSEIF [character_first_name] = &quot;(Bill)&quot;&#xA;THEN  &quot;Bill&quot;&#xA;ELSEIF [character_first_name] = &quot;Rolanda&quot;&#xA;THEN  &quot;Madam Hooch&quot;&#xA;ELSEIF [character_first_name] = &quot;Garrick&quot;&#xA;THEN  &quot;Ollivander&quot;&#xA;ELSEIF [character_first_name] = &quot;Argus&quot;&#xA;THEN  &quot;Filch&quot;&#xA;ELSEIF [character_first_name] = &quot;Filius&quot;&#xA;THEN  &quot;Flitwick&quot;&#xA;ELSEIF [character_first_name] = &quot;Minerva&quot;&#xA;THEN  &quot;McGonagall&quot;&#xA;ELSEIF [character_first_name] = &quot;Molly&quot;&#xA;THEN  &quot;Mrs. Weasley&quot;&#xA;ELSEIF [character_first_name] = &quot;Quirinus&quot;&#xA;THEN  &quot;Quirrell&quot;&#xA;ELSEIF [character_first_name] = &quot;Cornelius&quot;&#xA;THEN  &quot;Fudge&quot;&#xA;ELSEIF [character_first_name] = &quot;Glideroy&quot;&#xA;THEN  &quot;Lockhart&quot;&#xA;ELSEIF [character_first_name] = &quot;Edward&quot;&#xA;THEN  &quot;Lupin&quot;&#xA;ELSEIF [character_first_name] = &quot;Arthur&quot;&#xA;THEN  &quot;Mr. Weasley&quot;&#xA;ELSEIF [character_first_name] = &quot;Peter&quot;&#xA;THEN  &quot;Pettigrew&quot;&#xA;ELSEIF [character_first_name] = &quot;Pomona&quot;&#xA;THEN  &quot;Sprout&quot;&#xA;ELSEIF [character_first_name] = &quot;Sybill&quot;&#xA;THEN  &quot;Trelawney&quot;&#xA;ELSEIF [character_first_name] = &quot;Nicholas&quot;&#xA;THEN  &quot;Sir Nicholas&quot;&#xA;ELSEIF [character_first_name] = &quot;Gilderoy&quot;&#xA;THEN  &quot;Lockhart&quot;&#xA;ELSEIF [character_first_name] = &quot;Grogory&quot;&#xA;THEN  &quot;Goyle&quot;&#xA;ELSEIF [character_name] = &quot;James Sirius Potter&quot;&#xA;THEN  &quot;James Sirius&quot;&#xA;ELSEIF [character_name] = &quot;Barty Crouch Jr.&quot;&#xA;THEN  &quot;Crouch Jr.&quot;&#xA;ELSEIF [character_name] = &quot;Barty Crouch Sr.&quot;&#xA;THEN  &quot;Crouch Sr.&quot;&#xA;ELSE [character_first_name]&#xA;ENDIF" field="character_primary_name" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Create primary names</AnnotationText>
+              <DefaultAnnotationText>character_primary_name = IF [character_first_name] = "Ronald"
+THEN  "Ron"
+ELSEIF...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="11">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="933" y="271" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="character_id" selected="True" />
+                <SelectField field="character_name" selected="True" />
+                <SelectField field="character_gender" selected="True" />
+                <SelectField field="character_job" selected="True" />
+                <SelectField field="character_house" selected="True" />
+                <SelectField field="character_wand" selected="True" />
+                <SelectField field="character_patronus" selected="True" />
+                <SelectField field="character_species" selected="True" />
+                <SelectField field="character_blood_status" selected="True" />
+                <SelectField field="character_hair_colour" selected="True" />
+                <SelectField field="character_eye_colour" selected="True" />
+                <SelectField field="character_loyalty" selected="True" />
+                <SelectField field="character_skills" selected="True" />
+                <SelectField field="character_birth" selected="True" />
+                <SelectField field="character_death" selected="True" />
+                <SelectField field="character_first_name1" selected="True" rename="character_first_name" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Remove extra</AnnotationText>
+              <DefaultAnnotationText>Remove extra</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="14">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="957" y="103" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="character_first_name1" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Check duplicate first names</AnnotationText>
+              <DefaultAnnotationText>Check duplicate names</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="35">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="80" y="366" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\sarakautto\Documents\shortversioncharacters.csv</File>
+              <FormatSpecificOptions>
+                <HeaderRow>True</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>254</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>,</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>65001</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>shortversioncharacters.csv</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="name" size="254" source="File: C:\Users\sarakautto\Documents\shortversioncharacters.csv" type="V_WString" />
+                <Field name="species" size="254" source="File: C:\Users\sarakautto\Documents\shortversioncharacters.csv" type="V_WString" />
+                <Field name="gender" size="254" source="File: C:\Users\sarakautto\Documents\shortversioncharacters.csv" type="V_WString" />
+                <Field name="house" size="254" source="File: C:\Users\sarakautto\Documents\shortversioncharacters.csv" type="V_WString" />
+                <Field name="dateOfBirth" size="254" source="File: C:\Users\sarakautto\Documents\shortversioncharacters.csv" type="V_WString" />
+                <Field name="yearOfBirth" size="254" source="File: C:\Users\sarakautto\Documents\shortversioncharacters.csv" type="V_WString" />
+                <Field name="ancestry" size="254" source="File: C:\Users\sarakautto\Documents\shortversioncharacters.csv" type="V_WString" />
+                <Field name="eyeColour" size="254" source="File: C:\Users\sarakautto\Documents\shortversioncharacters.csv" type="V_WString" />
+                <Field name="hairColour" size="254" source="File: C:\Users\sarakautto\Documents\shortversioncharacters.csv" type="V_WString" />
+                <Field name="wand" size="254" source="File: C:\Users\sarakautto\Documents\shortversioncharacters.csv" type="V_WString" />
+                <Field name="patronus" size="254" source="File: C:\Users\sarakautto\Documents\shortversioncharacters.csv" type="V_WString" />
+                <Field name="hogwartsStudent" size="254" source="File: C:\Users\sarakautto\Documents\shortversioncharacters.csv" type="V_WString" />
+                <Field name="hogwartsStaff" size="254" source="File: C:\Users\sarakautto\Documents\shortversioncharacters.csv" type="V_WString" />
+                <Field name="actor" size="254" source="File: C:\Users\sarakautto\Documents\shortversioncharacters.csv" type="V_WString" />
+                <Field name="alive" size="254" source="File: C:\Users\sarakautto\Documents\shortversioncharacters.csv" type="V_WString" />
+                <Field name="image" size="254" source="File: C:\Users\sarakautto\Documents\shortversioncharacters.csv" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="36">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="200" y="365.9999" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="name" selected="True" rename="character2_name" />
+                <SelectField field="dateOfBirth" selected="True" rename="character2_date_of_birth" />
+                <SelectField field="yearOfBirth" selected="True" rename="character2_year_of_birth" />
+                <SelectField field="hogwartsStudent" selected="True" rename="character2_Student_T/F" />
+                <SelectField field="hogwartsStaff" selected="True" rename="character2_Staff_T/F" />
+                <SelectField field="actor" selected="True" rename="character2_actor" />
+                <SelectField field="image" selected="True" rename="character2_image_URL" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Rename columns</AnnotationText>
+              <DefaultAnnotationText>Rename columns</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="38">
+          <GuiSettings>
+            <Position x="308" y="366" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Check Box (135)">True</Value>
+              <Value name="Check Box (136)">True</Value>
+              <Value name="List Box (11)">"character2_name","character2_date_of_birth","character2_year_of_birth","character2_Student_T/F","character2_Staff_T/F","character2_actor","character2_image_URL"</Value>
+              <Value name="Check Box (84)">False</Value>
+              <Value name="Check Box (117)">False</Value>
+              <Value name="Check Box (15)">True</Value>
+              <Value name="Check Box (109)">False</Value>
+              <Value name="Check Box (122)">False</Value>
+              <Value name="Check Box (53)">False</Value>
+              <Value name="Check Box (58)">False</Value>
+              <Value name="Check Box (70)">False</Value>
+              <Value name="Check Box (77)">False</Value>
+              <Value name="Drop Down (81)">upper</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Clean data</AnnotationText>
+              <DefaultAnnotationText>Clean data</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings Macro="Cleanse.yxmc" />
+        </Node>
+        <Node ToolID="39">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="849" y="367" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>character2_name</Field>
+              <ErrorHandling>Last</ErrorHandling>
+              <RootName>character2_first_name</RootName>
+              <Delimeters value=" " />
+              <NumFields value="2" />
+              <Flags value="0" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Split name</AnnotationText>
+              <DefaultAnnotationText>Split name</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+        <Node ToolID="40">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="933" y="367" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="character2_actor" selected="True" />
+                <SelectField field="character2_image_URL" selected="True" />
+                <SelectField field="character2_first_name1" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Remove extra</AnnotationText>
+              <DefaultAnnotationText>Remove extra</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="41">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="1137" y="283" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="character_primary_name" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="character2_primary_name" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Join characters</AnnotationText>
+              <DefaultAnnotationText>Join characters</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="42">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1017" y="367" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="IF [character2_first_name1] = &quot;Arthur&quot;&#xA;THEN &quot;Mr. Weasley&quot;&#xA;ELSEIF [character2_first_name1] = &quot;Argus&quot;&#xA;THEN &quot;Filch&quot;&#xA;ELSEIF [character2_first_name1] = &quot;Lord&quot;&#xA;THEN &quot;Voldemort&quot;&#xA;ELSEIF [character2_first_name1] = &quot;Minerva&quot;&#xA;THEN &quot;McGonagall&quot;&#xA;ELSEIF [character2_first_name1] = &quot;Minerva&quot;&#xA;THEN &quot;McGonagall&quot;&#xA;ELSEIF [character2_first_name1] = &quot;Severus&quot;&#xA;THEN &quot;Snape&quot;&#xA;ELSEIF [character2_first_name1] = &quot;Rubeus&quot;&#xA;THEN &quot;Hagrid&quot;&#xA;ELSE [character2_first_name1]&#xA;ENDIF" field="character2_primary_name" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Create primary names</AnnotationText>
+              <DefaultAnnotationText>character2_primary_name = IF [character2_first_name1] = "Arthur"
+THEN "Mr. Weasl...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="43">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="1245" y="283" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Union characters</AnnotationText>
+              <DefaultAnnotationText>Union characters</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="44">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1353" y="283" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="IF [character_primary_name] = &quot;Ginny&quot;&#xA;THEN &quot;https://upload.wikimedia.org/wikipedia/sh/b/b6/GinnyWeasley.jpg&quot;&#xA;ELSEIF [character_primary_name] = &quot;Mr. Weasley&quot;&#xA;THEN &quot;https://openpsychometrics.org/tests/characters/test-resources/pics/HP/21.jpg&quot;&#xA;ELSEIF [character_primary_name] = &quot;Dumbledore&quot; &#xA;THEN &quot;https://imgix.bustle.com/inverse/05/03/bd/24/f7d5/46b4/9dde/8c95f4ca1ba3/683ca43276704ef4mcdhapoec953hjpg.jpeg?w=350&amp;h=298&amp;fit=crop&amp;crop=faces&amp;auto=format%2Ccompress&amp;blend=000000&amp;blendAlpha=45&amp;blendMode=normal&quot;&#xA;ELSEIF IsNull([character2_image_URL])&#xA;THEN &quot;https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg&quot;&#xA;ELSE Replace([character2_image_URL],&quot;http:&quot;, &quot;https:&quot;)&#xA;ENDIF" field="character2_image_URL" size="254" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Add image URL</AnnotationText>
+              <DefaultAnnotationText>character2_image_URL = IF [character_primary_name] = "Ginny"
+THEN "https://uploa...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="33">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1449" y="283" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="IF IsNull([character_death]) &#xA;THEN &quot;False&quot;&#xA;ELSE &quot;True&quot;&#xA;ENDIF&#xA;" field="character_death_T/F" size="1" type="Bool" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>create character_death_T/F</AnnotationText>
+              <DefaultAnnotationText>character_death_T/F = IF IsNull([character_death]) 
+THEN "False"
+ELSE "True"
+END...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="45">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1569" y="283" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="character_id" selected="True" />
+                <SelectField field="character_name" selected="True" />
+                <SelectField field="character_gender" selected="True" />
+                <SelectField field="character_job" selected="True" />
+                <SelectField field="character_house" selected="True" />
+                <SelectField field="character_wand" selected="True" />
+                <SelectField field="character_patronus" selected="True" />
+                <SelectField field="character_species" selected="True" />
+                <SelectField field="character_blood_status" selected="True" />
+                <SelectField field="character_hair_colour" selected="True" />
+                <SelectField field="character_eye_colour" selected="True" />
+                <SelectField field="character_loyalty" selected="True" />
+                <SelectField field="character_skills" selected="True" />
+                <SelectField field="character_birth" selected="True" />
+                <SelectField field="character_death" selected="True" />
+                <SelectField field="character_first_name" selected="True" />
+                <SelectField field="character_primary_name" selected="True" />
+                <SelectField field="character2_actor" selected="True" />
+                <SelectField field="character2_image_URL" selected="True" />
+                <SelectField field="character_death_T/F" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Remove extra</AnnotationText>
+              <DefaultAnnotationText>Remove extra</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="81">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1089" y="115" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\SARAKA~1\AppData\Local\Temp\Engine_4492_e0184f60f6244882ae52b1168c608b67_\Engine_3520_6172e5ee4b71440f8156c419c5e888d8_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="82">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="1137" y="180" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="character_primary_name" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Check duplicate primary names</AnnotationText>
+              <DefaultAnnotationText>Check duplicate primary names</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="83">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="1257" y="192" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\SARAKA~1\AppData\Local\Temp\Engine_4492_e0184f60f6244882ae52b1168c608b67_\Engine_3520_c6bd6be9cad1490cba23ea2131c88b52_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="61">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+            <Position x="572" y="270" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>character_job</Field>
+              <RegExExpression value="–" />
+              <CaseInsensitve value="True" />
+              <Method>Replace</Method>
+              <Replace expression="-">
+                <CopyUnmatched value="True" />
+              </Replace>
+              <ParseSimple>
+                <SplitToRows value="False" />
+                <RootName>character_job</RootName>
+                <NumFields value="3" />
+                <ErrorHandling>Warn</ErrorHandling>
+              </ParseSimple>
+              <ParseComplex>
+                <Field field="No Marked Groups Found" type="No Marked Groups Found" size="No Marked Groups Found" />
+              </ParseComplex>
+              <Match>
+                <Field>character_id_Matched</Field>
+                <ErrorUnmatched value="False" />
+              </Match>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Clean character_job</AnnotationText>
+              <DefaultAnnotationText>Clean character_birth</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+        </Node>
+        <Node ToolID="60">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+            <Position x="476" y="270" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>character_death</Field>
+              <RegExExpression value="–" />
+              <CaseInsensitve value="True" />
+              <Method>Replace</Method>
+              <Replace expression="-">
+                <CopyUnmatched value="True" />
+              </Replace>
+              <ParseSimple>
+                <SplitToRows value="False" />
+                <RootName>character_death</RootName>
+                <NumFields value="3" />
+                <ErrorHandling>Warn</ErrorHandling>
+              </ParseSimple>
+              <ParseComplex>
+                <Field field="No Marked Groups Found" type="No Marked Groups Found" size="No Marked Groups Found" />
+              </ParseComplex>
+              <Match>
+                <Field>character_id_Matched</Field>
+                <ErrorUnmatched value="False" />
+              </Match>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Clean character_death</AnnotationText>
+              <DefaultAnnotationText>Clean character_death</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+        </Node>
+        <Node ToolID="59">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+            <Position x="380" y="269.9999" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>character_birth</Field>
+              <RegExExpression value="–" />
+              <CaseInsensitve value="True" />
+              <Method>Replace</Method>
+              <Replace expression="-">
+                <CopyUnmatched value="True" />
+              </Replace>
+              <ParseSimple>
+                <SplitToRows value="False" />
+                <RootName>character_birth</RootName>
+                <NumFields value="3" />
+                <ErrorHandling>Warn</ErrorHandling>
+              </ParseSimple>
+              <ParseComplex>
+                <Field field="No Marked Groups Found" type="No Marked Groups Found" size="No Marked Groups Found" />
+              </ParseComplex>
+              <Match>
+                <Field>character_id_Matched</Field>
+                <ErrorUnmatched value="False" />
+              </Match>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Clean character_birth</AnnotationText>
+              <DefaultAnnotationText>Clean character_birth</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+        </Node>
+        <Node ToolID="62">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+            <Position x="656" y="270" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>character_wand</Field>
+              <RegExExpression value="”" />
+              <CaseInsensitve value="True" />
+              <Method>Replace</Method>
+              <Replace expression="">
+                <CopyUnmatched value="True" />
+              </Replace>
+              <ParseSimple>
+                <SplitToRows value="False" />
+                <RootName>character_wand</RootName>
+                <NumFields value="3" />
+                <ErrorHandling>Warn</ErrorHandling>
+              </ParseSimple>
+              <ParseComplex>
+                <Field field="No Marked Groups Found" type="No Marked Groups Found" size="No Marked Groups Found" />
+              </ParseComplex>
+              <Match>
+                <Field>character_id_Matched</Field>
+                <ErrorUnmatched value="False" />
+              </Match>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Clean character_wand</AnnotationText>
+              <DefaultAnnotationText>Clean character_wand</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+        </Node>
+        <Node ToolID="63">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RegEx.RegEx">
+            <Position x="752" y="270" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>character_skills</Field>
+              <RegExExpression value="‘excellent dancer’" />
+              <CaseInsensitve value="True" />
+              <Method>Replace</Method>
+              <Replace expression="&quot;excellent dancer&quot;">
+                <CopyUnmatched value="True" />
+              </Replace>
+              <ParseSimple>
+                <SplitToRows value="False" />
+                <RootName>character_skills</RootName>
+                <NumFields value="3" />
+                <ErrorHandling>Warn</ErrorHandling>
+              </ParseSimple>
+              <ParseComplex>
+                <Field field="No Marked Groups Found" type="No Marked Groups Found" size="No Marked Groups Found" />
+              </ParseComplex>
+              <Match>
+                <Field>character_id_Matched</Field>
+                <ErrorUnmatched value="False" />
+              </Match>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Clean character_skills</AnnotationText>
+              <DefaultAnnotationText>Clean character_birth</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRegEx" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="80">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="54" y="701" width="854" height="165" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Movies</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="70">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="79" y="750" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\sarakautto\Documents\movies_mentions.csv</File>
+              <FormatSpecificOptions>
+                <HeaderRow>True</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>254</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>,</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>movies_mentions.csv</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Character_Primary_Name" size="254" source="File: C:\Users\sarakautto\Documents\movies_mentions.csv" type="V_String" />
+                <Field name="Film 1:" size="254" source="File: C:\Users\sarakautto\Documents\movies_mentions.csv" type="V_String" />
+                <Field name="Film 2:" size="254" source="File: C:\Users\sarakautto\Documents\movies_mentions.csv" type="V_String" />
+                <Field name="Film 3:" size="254" source="File: C:\Users\sarakautto\Documents\movies_mentions.csv" type="V_String" />
+                <Field name="Film 4:" size="254" source="File: C:\Users\sarakautto\Documents\movies_mentions.csv" type="V_String" />
+                <Field name="Film 5:" size="254" source="File: C:\Users\sarakautto\Documents\movies_mentions.csv" type="V_String" />
+                <Field name="Film 6:" size="254" source="File: C:\Users\sarakautto\Documents\movies_mentions.csv" type="V_String" />
+                <Field name="Film 7:" size="254" source="File: C:\Users\sarakautto\Documents\movies_mentions.csv" type="V_String" />
+                <Field name="Film 8:" size="254" source="File: C:\Users\sarakautto\Documents\movies_mentions.csv" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="72">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="199" y="750" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Character_Primary_Name" selected="True" rename="movie_character" />
+                <SelectField field="Film 1:" selected="True" rename="1" type="Int64" size="8" />
+                <SelectField field="Film 2:" selected="True" rename="2" type="Int64" size="8" />
+                <SelectField field="Film 3:" selected="True" rename="3" type="Int64" size="8" />
+                <SelectField field="Film 4:" selected="True" rename="4" type="Int64" size="8" />
+                <SelectField field="Film 5:" selected="True" rename="5" type="Int64" size="8" />
+                <SelectField field="Film 6:" selected="True" rename="6" type="Int64" size="8" />
+                <SelectField field="Film 7:" selected="True" rename="7" type="Int64" size="8" />
+                <SelectField field="Film 8:" selected="True" rename="8" type="Int64" size="8" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Rename and Change types</AnnotationText>
+              <DefaultAnnotationText>Rename and Change types</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="73">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="295" y="750" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="IF [movie_character] = &quot;Albus&quot;&#xA;THEN &quot;Dumbledore&quot;&#xA;ELSEIF [movie_character] = &quot;Tom&quot;&#xA;THEN &quot;Voldemort&quot;&#xA;ELSEIF [movie_character] = &quot;The Heir of Slytherin&quot;&#xA;THEN &quot;Voldemort&quot;&#xA;ELSEIF [movie_character] = &quot;The Dark Lord&quot;&#xA;THEN &quot;Voldemort&quot;&#xA;ELSEIF [movie_character] = &quot;The Heir of Slytherin&quot;&#xA;THEN &quot;Voldemort&quot;&#xA;ELSEIF [movie_character] = &quot;You Know Who&quot;&#xA;THEN &quot;Voldemort&quot;&#xA;ELSEIF [movie_character] = &quot;He Who Must Not Be Named&quot;&#xA;THEN &quot;Voldemort&quot;&#xA;ELSE [movie_character]&#xA;ENDIF" field="movie_character" size="254" type="V_String" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Rename aliases</AnnotationText>
+              <DefaultAnnotationText>movie_character = IF [movie_character] = "Albus"
+THEN "Dumbledore"
+ELSEIF [movie...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="74">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+            <Position x="487" y="750" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ErrorWarn>Warn</ErrorWarn>
+              <KeyFields>
+                <Field field="movie_character" />
+              </KeyFields>
+              <DataFields>
+                <Field field="movie_character" selected="False" />
+                <Field field="1" selected="True" />
+                <Field field="2" selected="True" />
+                <Field field="3" selected="True" />
+                <Field field="4" selected="True" />
+                <Field field="5" selected="True" />
+                <Field field="6" selected="True" />
+                <Field field="7" selected="True" />
+                <Field field="8" selected="True" />
+                <Field field="*Unknown" selected="True" />
+              </DataFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Movie columns to rows</AnnotationText>
+              <DefaultAnnotationText>Movie columns to rows</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+        </Node>
+        <Node ToolID="75">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="583" y="750" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Name" selected="True" rename="movie_number" />
+                <SelectField field="Value" selected="True" rename="movie_mentions" description="amount of times each character is meantioned in each movie" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Rename after pivot</AnnotationText>
+              <DefaultAnnotationText>Rename after pivot</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="76">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="787" y="750" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="IF [movie_number] = &quot;1&quot; &#xA;THEN &quot;2001&quot;&#xA;ELSEIF [movie_number] = &quot;2&quot; &#xA;THEN &quot;2002&quot;&#xA;ELSEIF [movie_number] = &quot;3&quot; &#xA;THEN &quot;2004&quot;&#xA;ELSEIF [movie_number] = &quot;4&quot; &#xA;THEN &quot;2005&quot;&#xA;ELSEIF [movie_number] = &quot;5&quot; &#xA;THEN &quot;2007&quot;&#xA;ELSEIF [movie_number] = &quot;6&quot; &#xA;THEN &quot;2009&quot;&#xA;ELSEIF [movie_number] = &quot;7&quot; &#xA;THEN &quot;2010&quot;&#xA;ELSEIF [movie_number] = &quot;8&quot; &#xA;THEN &quot;2011&quot;&#xA;ELSE &quot;error&quot;&#xA;ENDIF" field="movie_year" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Add movie_year</AnnotationText>
+              <DefaultAnnotationText>movie_year = IF [movie_number] = "1" 
+THEN "2001"
+ELSEIF [movie_number] = "2" 
+T...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="77">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="679" y="750" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="IF [movie_number] = &quot;1&quot;&#xA;THEN &quot;Harry Potter and the Philosophers Stone&quot;&#xA;ELSEIF [movie_number] = &quot;2&quot;&#xA;THEN &quot;Harry Potter and the Chamber of Secrets&quot;&#xA;ELSEIF [movie_number] = &quot;3&quot;&#xA;THEN &quot;Harry Potter and the Prisoner of Azkaban&quot;&#xA;ELSEIF [movie_number] = &quot;4&quot;&#xA;THEN &quot;Harry Potter and the Goblet of Fire&quot;&#xA;ELSEIF [movie_number] = &quot;5&quot;&#xA;THEN &quot;Harry Potter and the Order of the Phoenix&quot;&#xA;ELSEIF [movie_number] = &quot;6&quot;&#xA;THEN &quot;Harry Potter and the Half-Blood Prince&quot;&#xA;ELSEIF [movie_number] = &quot;7&quot;&#xA;THEN &quot;Harry Potter and the Deathly Hallows: Part 1&quot;&#xA;ELSEIF [movie_number] = &quot;8&quot;&#xA;THEN &quot;Harry Potter and the Deathly Hallows: Part 2&quot;&#xA;ELSE &quot;error&quot;&#xA;ENDIF&#xA;" field="movie_name" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Add movie_name</AnnotationText>
+              <DefaultAnnotationText>movie_name = IF [movie_number] = "1"
+THEN "Harry Potter and the Philosophers Sto...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="90">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="391" y="750" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="movie_character" action="GroupBy" rename="movie_character" />
+                <SummarizeField field="1" action="Sum" rename="1" />
+                <SummarizeField field="2" action="Sum" rename="2" />
+                <SummarizeField field="3" action="Sum" rename="3" />
+                <SummarizeField field="4" action="Sum" rename="4" />
+                <SummarizeField field="5" action="Sum" rename="5" />
+                <SummarizeField field="6" action="Sum" rename="6" />
+                <SummarizeField field="7" action="Sum" rename="7" />
+                <SummarizeField field="8" action="Sum" rename="8" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Summarize aliases</AnnotationText>
+              <DefaultAnnotationText>Summarize aliases</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="65">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="54" y="508.9999" width="836" height="165.0001" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Books</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="69">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="775" y="558" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="IF [book_number] = &quot;1&quot; &#xA;THEN &quot;1997&quot;&#xA;ELSEIF [book_number] = &quot;2&quot; &#xA;THEN &quot;1998&quot;&#xA;ELSEIF [book_number] = &quot;3&quot; &#xA;THEN &quot;1999&quot;&#xA;ELSEIF [book_number] = &quot;4&quot; &#xA;THEN &quot;2000&quot;&#xA;ELSEIF [book_number] = &quot;5&quot; &#xA;THEN &quot;2003&quot;&#xA;ELSEIF [book_number] = &quot;6&quot; &#xA;THEN &quot;2005&quot;&#xA;ELSEIF [book_number] = &quot;7&quot; &#xA;THEN &quot;2007&quot;&#xA;ELSE &quot;error&quot;&#xA;ENDIF" field="book_year" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Add book_year</AnnotationText>
+              <DefaultAnnotationText>book_year = IF [book_number] = "1" 
+THEN "1997"
+ELSEIF [book_number] = "2" 
+THEN...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="68">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="679" y="558" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="IF [book_number] = &quot;1&quot;&#xA;THEN &quot;Harry Potter and the Philosophers Stone&quot;&#xA;ELSEIF [book_number] = &quot;2&quot;&#xA;THEN &quot;Harry Potter and the Chamber of Secrets&quot;&#xA;ELSEIF [book_number] = &quot;3&quot;&#xA;THEN &quot;Harry Potter and the Prisoner of Azkaban&quot;&#xA;ELSEIF [book_number] = &quot;4&quot;&#xA;THEN &quot;Harry Potter and the Goblet of Fire&quot;&#xA;ELSEIF [book_number] = &quot;5&quot;&#xA;THEN &quot;Harry Potter and the Order of the Phoenix&quot;&#xA;ELSEIF [book_number] = &quot;6&quot;&#xA;THEN &quot;Harry Potter and the Half-Blood Prince&quot;&#xA;ELSEIF [book_number] = &quot;7&quot;&#xA;THEN &quot;Harry Potter and the Deathly Hallows&quot;&#xA;ELSE &quot;error&quot;&#xA;ENDIF&#xA;" field="book_name" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Add book_name</AnnotationText>
+              <DefaultAnnotationText>book_name = IF [book_number] = "1"
+THEN "Harry Potter and the Philosophers Stone...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="67">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="583" y="558" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Name" selected="True" rename="book_number" />
+                <SelectField field="Value" selected="True" rename="book_mentions" description="amount of times each character is meantioned in each book" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Rename after pivot</AnnotationText>
+              <DefaultAnnotationText>Rename</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="66">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
+            <Position x="487" y="558" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ErrorWarn>Ignore</ErrorWarn>
+              <KeyFields>
+                <Field field="book_character" />
+              </KeyFields>
+              <DataFields>
+                <Field field="book_character" selected="False" />
+                <Field field="1" selected="True" />
+                <Field field="2" selected="True" />
+                <Field field="3" selected="True" />
+                <Field field="4" selected="True" />
+                <Field field="5" selected="True" />
+                <Field field="6" selected="True" />
+                <Field field="7" selected="True" />
+                <Field field="*Unknown" selected="False" />
+              </DataFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Book columns to rows</AnnotationText>
+              <DefaultAnnotationText>Book columns to rows</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
+        </Node>
+        <Node ToolID="49">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="199" y="557.9999" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Character_Primary_Name" selected="True" rename="book_character" />
+                <SelectField field="Book 1:" selected="True" rename="1" type="Int64" size="8" />
+                <SelectField field="Book 2:" selected="True" rename="2" type="Int64" size="8" />
+                <SelectField field="Book 3:" selected="True" rename="3" type="Int64" size="8" />
+                <SelectField field="Book 4:" selected="True" rename="4" type="Int64" size="8" />
+                <SelectField field="Book 5:" selected="True" rename="5" type="Int32" size="4" />
+                <SelectField field="Book 6:" selected="True" rename="6" type="Int64" size="8" />
+                <SelectField field="Book 7:" selected="True" rename="7" type="Int64" size="8" />
+                <SelectField field="Field_1" selected="False" rename="book_character" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Rename and Change types</AnnotationText>
+              <DefaultAnnotationText>Rename and Change types</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="47">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="79.00001" y="558" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\sarakautto\Documents\books_mentions.csv</File>
+              <FormatSpecificOptions>
+                <HeaderRow>True</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>254</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>,</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>books_mentions.csv</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Character_Primary_Name" size="254" source="File: C:\Users\sarakautto\Documents\books_mentions.csv" type="V_String" />
+                <Field name="Book 1:" size="254" source="File: C:\Users\sarakautto\Documents\books_mentions.csv" type="V_String" />
+                <Field name="Book 2:" size="254" source="File: C:\Users\sarakautto\Documents\books_mentions.csv" type="V_String" />
+                <Field name="Book 3:" size="254" source="File: C:\Users\sarakautto\Documents\books_mentions.csv" type="V_String" />
+                <Field name="Book 4:" size="254" source="File: C:\Users\sarakautto\Documents\books_mentions.csv" type="V_String" />
+                <Field name="Book 5:" size="254" source="File: C:\Users\sarakautto\Documents\books_mentions.csv" type="V_String" />
+                <Field name="Book 6:" size="254" source="File: C:\Users\sarakautto\Documents\books_mentions.csv" type="V_String" />
+                <Field name="Book 7:" size="254" source="File: C:\Users\sarakautto\Documents\books_mentions.csv" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="51">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="295" y="558" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="IF [book_character] = &quot;Albus&quot;&#xA;THEN &quot;Dumbledore&quot;&#xA;ELSEIF [book_character] = &quot;Tom&quot;&#xA;THEN &quot;Voldemort&quot;&#xA;ELSEIF [book_character] = &quot;The Heir of Slytherin&quot;&#xA;THEN &quot;Voldemort&quot;&#xA;ELSEIF [book_character] = &quot;The Dark Lord&quot;&#xA;THEN &quot;Voldemort&quot;&#xA;ELSEIF [book_character] = &quot;The Heir of Slytherin&quot;&#xA;THEN &quot;Voldemort&quot;&#xA;ELSEIF [book_character] = &quot;You-Know-Who&quot;&#xA;THEN &quot;Voldemort&quot;&#xA;ELSEIF [book_character] = &quot;He-Who-Must-Not-Be-Named&quot;&#xA;THEN &quot;Voldemort&quot;&#xA;ELSE [book_character]&#xA;ENDIF" field="book_character" size="254" type="V_String" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Rename aliases</AnnotationText>
+              <DefaultAnnotationText>book_character = IF [book_character] = "Albus"
+THEN "Dumbledore"
+ELSEIF [book_ch...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="89">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="391" y="558" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="book_character" action="GroupBy" rename="book_character" />
+                <SummarizeField field="1" action="Sum" rename="1" />
+                <SummarizeField field="2" action="Sum" rename="2" />
+                <SummarizeField field="3" action="Sum" rename="3" />
+                <SummarizeField field="4" action="Sum" rename="4" />
+                <SummarizeField field="5" action="Sum" rename="5" />
+                <SummarizeField field="6" action="Sum" rename="6" />
+                <SummarizeField field="7" action="Sum" rename="7" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Summarize aliases</AnnotationText>
+              <DefaultAnnotationText>Summarize aliases</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="52" Connection="Join" />
+      <Destination ToolID="53" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="53" Connection="Output" />
+      <Destination ToolID="54" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="78" Connection="Join" />
+      <Destination ToolID="79" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="78" Connection="Right" />
+      <Destination ToolID="79" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="79" Connection="Output" />
+      <Destination ToolID="52" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="45" Connection="Output" />
+      <Destination ToolID="52" Connection="Left" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="88" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="87" Connection="Output" />
+      <Destination ToolID="88" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="86" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="86" Connection="True" />
+      <Destination ToolID="87" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="88" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output26" />
+      <Destination ToolID="59" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="3" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="41" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="Output" />
+      <Destination ToolID="41" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="82" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Duplicates" />
+      <Destination ToolID="81" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="36" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="36" Connection="Output" />
+      <Destination ToolID="38" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="38" Connection="Output26" />
+      <Destination ToolID="39" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="Output" />
+      <Destination ToolID="40" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="40" Connection="Output" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="41" Connection="Left" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="41" Connection="Join" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="43" Connection="Output" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="44" Connection="Output" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="45" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="45" Connection="Output" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="82" Connection="Duplicates" />
+      <Destination ToolID="83" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="61" Connection="Output" />
+      <Destination ToolID="62" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="60" Connection="Output" />
+      <Destination ToolID="61" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="59" Connection="Output" />
+      <Destination ToolID="60" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="62" Connection="Output" />
+      <Destination ToolID="63" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="63" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="70" Connection="Output" />
+      <Destination ToolID="72" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="72" Connection="Output" />
+      <Destination ToolID="73" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="73" Connection="Output" />
+      <Destination ToolID="90" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="74" Connection="Output" />
+      <Destination ToolID="75" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="75" Connection="Output" />
+      <Destination ToolID="77" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="76" Connection="Output" />
+      <Destination ToolID="78" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="69" Connection="Output" />
+      <Destination ToolID="78" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="77" Connection="Output" />
+      <Destination ToolID="76" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="90" Connection="Output" />
+      <Destination ToolID="74" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="68" Connection="Output" />
+      <Destination ToolID="69" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="67" Connection="Output" />
+      <Destination ToolID="68" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="66" Connection="Output" />
+      <Destination ToolID="67" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="49" Connection="Output" />
+      <Destination ToolID="51" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="47" Connection="Output" />
+      <Destination ToolID="49" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="51" Connection="Output" />
+      <Destination ToolID="89" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="89" Connection="Output" />
+      <Destination ToolID="66" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Harry_Potter_Alteryx_Workflow</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
